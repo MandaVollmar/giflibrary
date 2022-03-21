@@ -7,7 +7,7 @@
     <link rel="icon" th:href="@{/favicon.png}" />
 
     <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
-    <link rel="stylesheet" :href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" th:href="@{/app.css}" />
 
     <title th:text="'GIF Library | ' + ${gif.name}">Gif Library</title>
@@ -47,18 +47,19 @@
         <div class="frame row">
             <div class="col s12">
                 <img th:src="@{'/gifs/' + ${gif.name} + '.gif'}" alt="gif" />
-                <a href="#" class="mark favorite"></a>
+                <a href="#" th:class="(${gif.favorite} ? 'un': '') + 'mark favorite'"></a>
             </div>
         </div>
         <div class="row">
             <div class="col s12 l6">
                 <div class="meta row">
                     <div class="col s3">
-                        <img class="circle" src="/images/erikalanguirand.jpg" alt="avatar" />
-                    </div>
-                    <div class="col s9">
-                        <h4>Erika Languirand</h4>
-                        <p>Uploaded on December 10, 2018</p>
+                        <img class="circle" th:src="@{'/images/' + ${image.imageName} + '.jpg'}" alt="avatar" />
+                        <a th:href="'/images/' + ${image.imageName}"></a>
+                        <div class="col s9">
+                        <h4 th:text="${gif.username}">username</h4>
+                        <p th:text="${gif.dateUploaded}">Uploaded</p>
+                        </div>
                     </div>
                 </div>
             </div>

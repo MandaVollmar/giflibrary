@@ -7,12 +7,18 @@ public class Gif {
     private LocalDate dateUploaded;
     private String username;
     private boolean favorite;
+    private int id;
+    private String picId;
 
-    public Gif(String name, LocalDate dateUploaded, String username, boolean favorite) {
+
+
+    public Gif(String name, LocalDate dateUploaded, String username, boolean favorite, int id, String picId) {
         this.name = name;
         this.dateUploaded = dateUploaded;
         this.username = username;
         this.favorite = favorite;
+        this.id = id;
+        this.picId = picId;
     }
 
     public String getName() {
@@ -45,5 +51,21 @@ public class Gif {
 
     public void setFavorite(boolean favorite) {
         this.favorite = favorite;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getPicId() {
+        return picId;
+    }
+
+    public void setPicId(String picId) {
+        this.picId = picId;
     }
 }
